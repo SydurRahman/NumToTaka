@@ -43,6 +43,8 @@ j=length-2
 while(j>=0):
     if(length==2):
         obj.word=obj.word+" "+obj.single(userNum[j])
+        if(userNum[0]=="0"):
+            obj.word="Zero"
         break
     if(j==1 or j==4 or j==6 or j==8 or j==11 or j==13):
         obj.word=obj.word+" "+obj.couple(userNum[j],userNum[j-1])

@@ -7,71 +7,21 @@ class fseven:
         self.num=p
     def single(self,x):
         self.flag=1
-        if x=='1':
-           w="One"
-        elif x=='2':
-            w="Two"
-        elif x=='3':
-            w="Three"
-        elif x=='4':
-            w="Four"
-        elif x=='5':
-            w="Five"
-        elif x=='6':
-            w="Six"
-        elif x=='7':
-            w="Seven"
-        elif x=='8':
-            w="Eight"
-        elif x=='9':
-            w="Nine"
-        elif x=='0':
-            w=""
+        this={"1":"One","2":"Two","3":"Three","4":"Four","5":"Five","6":"Six","7":"Seven","8":"Eight","9":"Nine","0":""}
+        w=this[x]
+        if(x==0):
             self.flag=0
         return w
     def couple(self,a,b):
         self.blag=1
+        that={"1":"Eleven","2":"Twelve","3":"Thirteen","4":"Fourteen","5":"Fifteen","6":"Sixteen","7":"Seventeen","8":"Eighteen","9":"Ninteen","0":"Ten"}
+        those={"2":"Twenty","3":"Thirty","4":"Forty","5":"Fifty","6":"Sixty","7":"Seventy","8":"Eighty","9":"Ninty","0":""}
         if a=='1':
-            if b=='0':
-                w="Ten"
-            elif b=='1':
-                w="Eleven"
-            elif b=='2':
-                w="Twelve"
-            elif b=='3':
-                w="Thirteen"
-            elif b=='4':
-                w="Fourteen"
-            elif b=='5':
-                w="Fifteen"
-            elif b=='6':
-                w="Sixteen"
-            elif b=='7':
-                self.w="Seventeen"
-            elif b=='8':
-                w="Eighteen"
-            elif b=='9':
-                w="Ninteen"
+            w=that[b]
         elif a!='1':
+            m=those[a]
             if a=='0':
-                m=""
                 self.blag=0
-            elif a=='2':
-                m="Twenty"
-            elif a=='3':
-                m="Thirty"
-            elif a=='4':
-                m="Fourty"
-            elif a=='5':
-                m="Fifty"
-            elif a=='6':
-                m="Sixty"
-            elif a=='7':
-                m="Seventy"
-            elif a=='8':
-                m="Eighty"
-            elif a=='9':
-                m="Ninety"
             n=self.single(b)
             w=m+" "+n
             if (self.blag==0 and self.flag==0):
@@ -80,19 +30,9 @@ class fseven:
                 self.tlag=1
         return w
     def amount(self,x):
-        if(x==1):
-             rd=""
-        elif(x==2 or x==9):
-            rd=" Hundred "
-        elif(x==4 or x==11 or x==3 or x==10):
-            rd=" Thousand "
-        elif(x==6 or x==13 or x==5 or x==12):
-            rd=" Lakh "
-        elif(x==8 or x==14 or x==7 or x==14):
-            rd=" Crore "
+        these={1:"",2:" Hundred ",9:" Hundred ",4:" Thousand ",11:" Thousand ",3:" Thousand ",10:" Thousand ",6:" Lakh ",13:" Lakh ",5:" Lakh ",12:" Lakh ",8:" Crore ",14:" Crore ",7:" Crore "}
+        rd=these[x]
         return rd
-
-
 user=input("Enter the Amount: ")
 userNum=user[::-1]
 userNum=userNum+" "
@@ -102,7 +42,7 @@ length=len(userNum)
 j=length-2
 while(j>=0):
     if(length==2):
-        obj.word=obj.word+" "+obj.single(userNum[j])+" Taka Only"
+        obj.word=obj.word+" "+obj.single(userNum[j])
         break
     if(j==1 or j==4 or j==6 or j==8 or j==11 or j==13):
         obj.word=obj.word+" "+obj.couple(userNum[j],userNum[j-1])
